@@ -15,10 +15,11 @@ typedef struct Node_type{
 
 void pushFirst(Node *node);
 void add(Node *head, Node *newNode);
-void addAt(Node *head, Node *newNode, int index);
-void removeAt(Node *head, int index);
+void addAt(Node **head, Node *newNode, int index);
+void removeAt(Node **head, int index);
 Node *createLinkedList(void *value);
 Node *createNewNode(void *value);
-
+void printLinkedList(Node *linkedList);
+unsigned getSize(Node *head);
 
 #endif //LABIBLIODEFRANCK_LINKEDLIST_H

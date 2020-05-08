@@ -4,6 +4,10 @@
 
 #include "LinkedList.h"
 
+/**
+ * @def - Créé une liste chaîne, plus précisément créé le premier noeud de cette liste
+ * @param - @void value : la valeur du type choisi
+ * */
 Node *createLinkedList(void *value) {
     Node *head = NULL;
     head = (Node*) malloc(sizeof(Node));
@@ -16,34 +20,102 @@ Node *createLinkedList(void *value) {
     return head;
 }
 
+/**
+ * @def - Même fonction qu'au dessus mais avec un nom différent, cela permet
+ * de ne pas se perdre entre la tête et les autres noeuds
+ * */
 Node *createNewNode(void *value) {
     return createLinkedList(value);
 }
 
+/**
+ * @def - Ajoute un noeud après le dernier noeud connu
+ * @param - headNode, la tête de liste ; newNode, le noeud à mettre en bout de liste
+ * */
 void add(Node *headNode, Node *newNode) {
 
     Node *lastNode = headNode;
 
-    while (lastNode != NULL) {
-        lastNode = headNode->next;
+    while (lastNode->next != NULL) {
+        lastNode = lastNode->next;
     }
 
     lastNode->next = newNode;
 }
 
-void addAt(Node *headNode, Node *newNode, int index) {
+/**
+ * @def - Ajoute un noeud à l'index souhaité et décale ceux d'après
+ * Si index supérieur à taille de la liste, alors il sera placé en dernier
+ * @param - headNode, la tête de liste ; newNode, le noeud à mettre en bout de liste ; index
+ * */
+void addAt(Node **headNode, Node *newNode, int index) {
 
-    Node *previousNode = headNode;
-    Node *nodeAtIndex = headNode;
+    Node *nodeAtIndex = *headNode;
+    Node *nextNode = NULL;
 
-    int i = 0;
-
-    while (i < index && previousNode->next != NULL) {
-        previousNode = nodeAtIndex;
-        i++;
-        nodeAtIndex = previousNode->next;
+    if (index == 0) { // Si l'user veut une nouvelle tête
+        newNode->next = *headNode;
+        *headNode = newNode;
     }
 
-    previousNode->next = newNode;
-    newNode->next = nodeAtIndex;
+    else {
+        int i = 0;
+        while (i < (index-1) && nodeAtIndex->next != NULL) {
+            nodeAtIndex = nodeAtIndex->next;
+            i++;
+        }
+
+        nextNode = nodeAtIndex->next;
+        newNode->next = nextNode;
+        nodeAtIndex->next = newNode;
+    }
+}
+
+unsigned int getSize(Node *head) {
+    unsigned int num = 0;
+    Node *node = head;
+
+    while (node != NULL) {
+        node = node->next;
+        num++;
+    }
+
+    return num;
+}
+
+void removeAt(Node **head, int index) {
+    Node *current = *head;
+
+    if (index >= getSize(*head)) {
+       printf("\nVotre index est en dehors de la liste");
+    }
+
+    else if (index == 0) {
+        current = (*head)->next;
+        free(head);
+        *head = current;
+    }
+
+    else {
+        int i = 0;
+
+        while (i < (index - 1) && current->next != NULL) {
+            current = current->next;
+            i++;
+        }
+
+        Node *toDelete = current->next;
+        current->next = toDelete->next;
+        free(toDelete);
+    }
+}
+
+void printLinkedList(Node *linkedList) {
+
+    Node *list = linkedList;
+
+    while (list != NULL) {
+        printf("\n%d", list->value);
+        list = list->next;
+    }
 }
