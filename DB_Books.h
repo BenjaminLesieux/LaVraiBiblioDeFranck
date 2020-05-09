@@ -6,10 +6,10 @@
 #define LABIBLIODEFRANCK_DB_BOOKS_H
 
 #include "Book.h"
+#include "LinkedList.h"
 
 typedef struct {
-    Book *books;
-    char file[30];
+    Node *books;
 } DBBooks;
 
 void addBookToDB(Book *book, DBBooks *database);

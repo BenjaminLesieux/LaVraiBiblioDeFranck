@@ -6,13 +6,13 @@
 #define LABIBLIODEFRANCK_DB_CLIENTS_H
 
 #include "Client.h"
+#include "LinkedList.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef struct {
-    Client *clients;
+    Node *clients;
     unsigned int numClients;
-    char file[30];
 } DBClients;
 
 

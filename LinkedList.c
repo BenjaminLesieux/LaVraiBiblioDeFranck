@@ -99,6 +99,7 @@ void removeAt(Node **head, int index) {
     else {
         int i = 0;
 
+
         while (i < (index - 1) && current->next != NULL) {
             current = current->next;
             i++;
@@ -118,4 +119,31 @@ void printLinkedList(Node *linkedList) {
         printf("\n%d", list->value);
         list = list->next;
     }
+}
+
+int find(Node *head, void *toFind) {
+    Node *current = head;
+    int i = 0;
+
+    while (current != NULL && i < getSize(head)) {
+        if (current->value == toFind) return i;
+        current = current->next;
+        i++;
+    }
+
+    return -1;
+}
+
+Node *getFrom(Node *head, void *value) {
+    Node *current = head;
+
+    int i = 0;
+    unsigned int index = find(head, value);
+
+    while (i < (index - 1) && current->next != NULL) {
+        current = current->next;
+        i++;
+    }
+
+    return current;
 }

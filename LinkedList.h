@@ -17,6 +17,8 @@ void pushFirst(Node *node);
 void add(Node *head, Node *newNode);
 void addAt(Node **head, Node *newNode, int index);
 void removeAt(Node **head, int index);
+int find(Node *head, void *toFind);
+Node *getFrom(Node *head, void *value);
 Node *createLinkedList(void *value);
 Node *createNewNode(void *value);
 void printLinkedList(Node *linkedList);
