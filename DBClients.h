@@ -21,6 +21,20 @@ typedef struct Client_type {
 
 typedef struct DBClients_type {
     Node *clients;
+    int numClients;
 } DBClients;
+
+/** Fonctions clients */
+Client *readClient();
+void addClient(DBClients *db, Client *client);
+void removeClient(DBClients *db, Client *client);
+void borrow(Client *client, Book *book);
+void give(Client *client, Book *book);
+
+void sortAlph(DBClients *db);
+void sortNum(DBClients *db);
+
+int isLate(Client *client);
+void printDB(DBClients *db);
 
 #endif //LABIBLIODEFRANCK_DBCLIENTS_H
