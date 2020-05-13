@@ -15,9 +15,8 @@ typedef struct {
     unsigned int numClients;
 } DBClients;
 
-
-void addClientToDB(Client *client, DBClients *database);
-int isClientInDB(Client *client, DBClients *database);
+DBClients *initDBC();
+Node *fillDBC();
 void removeClientFromDB(Client *client, DBClients *database);
 void sortByName(DBClients *database);
 void sortByBooksBorrowed(DBClients *database);

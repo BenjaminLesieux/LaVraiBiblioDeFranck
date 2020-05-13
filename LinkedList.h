@@ -22,6 +22,6 @@ Node *getFrom(Node *head, void *value);
 Node *createLinkedList(void *value);
 Node *createNewNode(void *value);
 void printLinkedList(Node *linkedList);
-unsigned getSize(Node *head);
+unsigned int getSize(Node *head);
 
 #endif //LABIBLIODEFRANCK_LINKEDLIST_H

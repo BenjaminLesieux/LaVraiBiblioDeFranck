@@ -5,7 +5,9 @@
 
 int main() {
 
-    Client *ben = createClient();
+    //DBClients *database = initDBC();
+    //database->clients = fillDBC();
+
 
     return 0;
 }

@@ -8,9 +8,9 @@
 #define FALSE 1
 
 typedef struct {
-    char title[50];
-    char author[60];
-    char code[7];
+    char *title;
+    char *author;
+    char *code;
     int stock;
     int availableStock;
 } Book;

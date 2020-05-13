@@ -8,20 +8,22 @@
 #include "book.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "DB_Clients.h"
+#include "LinkedList.h"
 
 typedef struct {
 
-    char name[30];
-    char surname[30];
-    char home[100];
-    char email[40];
-    char job[30];
+    char *name;
+    char *surname;
+    char *home;
+    char *email;
+    char *job;
     int borrowed;
     char *books;
 
 } Client;
 
-Client* createClient();
+Node* createClient(DB_Clients *db);
 void borrow(Book *book, Client *client);
 void bringBack(Book *book, Client *client);
 

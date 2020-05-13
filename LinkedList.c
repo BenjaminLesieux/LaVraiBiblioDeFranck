@@ -36,6 +36,11 @@ void add(Node *headNode, Node *newNode) {
 
     Node *lastNode = headNode;
 
+    if (find(headNode, newNode->value) != -1) {
+        printf("\nElement déjà présent dans la liste ");
+        return;
+    }
+
     while (lastNode->next != NULL) {
         lastNode = lastNode->next;
     }
@@ -53,7 +58,11 @@ void addAt(Node **headNode, Node *newNode, int index) {
     Node *nodeAtIndex = *headNode;
     Node *nextNode = NULL;
 
-    if (index == 0) { // Si l'user veut une nouvelle tête
+    if (find(*headNode, newNode->value) != -1) {
+        printf("\nElement déjà présent dans la liste ");
+    }
+
+    else if (index == 0) { // Si l'user veut une nouvelle tête
         newNode->next = *headNode;
         *headNode = newNode;
     }
@@ -124,14 +133,18 @@ void printLinkedList(Node *linkedList) {
 int find(Node *head, void *toFind) {
     Node *current = head;
     int i = 0;
+    int index = -1;
+    unsigned int size = getSize(head);
 
-    while (current != NULL && i < getSize(head)) {
-        if (current->value == toFind) return i;
+    while (current->next != NULL && i < size) {
+
+        if (current->value == toFind) index = i;
+
         current = current->next;
         i++;
     }
 
-    return -1;
+    return index;
 }
 
 Node *getFrom(Node *head, void *value) {
