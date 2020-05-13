@@ -125,7 +125,6 @@ void printLinkedList(Node *linkedList) {
     Node *list = linkedList;
 
     while (list != NULL) {
-        printf("\n%d", list->value);
         list = list->next;
     }
 }

@@ -5,7 +5,8 @@
 #ifndef LABIBLIODEFRANCK_LINKEDLIST_H
 #define LABIBLIODEFRANCK_LINKEDLIST_H
 
-#include "Client.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct Node_type{
     void *value;
