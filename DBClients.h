@@ -7,6 +7,10 @@
 
 #include "DBBooks.h"
 #include "LinkedList.h"
+#include <libxml/parser.h>
+#include <libxml/tree.h>
+#include <libxml/xmlwriter.h>
+#include <string.h>
 
 typedef struct Client_type {
     char *name;
@@ -36,5 +40,8 @@ void sortNum(DBClients *db);
 
 int isLate(Client *client);
 void printDB(DBClients *db);
+
+void updateXmlDB(DBClients *db);
+void *getClients(DBClients *db);
 
 #endif //LABIBLIODEFRANCK_DBCLIENTS_H

@@ -36,11 +36,6 @@ void add(Node *headNode, Node *newNode) {
 
     Node *lastNode = headNode;
 
-    if (find(headNode, newNode->value) != -1) {
-        printf("\nElement déjà présent dans la liste ");
-        return;
-    }
-
     while (lastNode->next != NULL) {
         lastNode = lastNode->next;
     }
@@ -58,11 +53,7 @@ void addAt(Node **headNode, Node *newNode, int index) {
     Node *nodeAtIndex = *headNode;
     Node *nextNode = NULL;
 
-    if (find(*headNode, newNode->value) != -1) {
-        printf("\nElement déjà présent dans la liste ");
-    }
-
-    else if (index == 0) { // Si l'user veut une nouvelle tête
+    if (index == 0) { // Si l'user veut une nouvelle tête
         newNode->next = *headNode;
         *headNode = newNode;
     }
@@ -84,9 +75,9 @@ unsigned int getSize(Node *head) {
     unsigned int num = 0;
     Node *node = head;
 
-    while (node != NULL) {
-        node = node->next;
+    while (node->next != NULL) {
         num++;
+        node = node->next;
     }
 
     return num;
@@ -158,4 +149,21 @@ Node *getFrom(Node *head, void *value) {
     }
 
     return current;
+}
+
+void *get(Node *head, int index) {
+    int i = 0;
+    Node *node = head;
+
+    while (node != NULL && i < (index)) {
+        node = node->next;
+        i++;
+    }
+
+    if (node == NULL) {
+        printf("\nErreur de récupération de noeud");
+        return NULL;
+    }
+
+    return node->value;
 }
