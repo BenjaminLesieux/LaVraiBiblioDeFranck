@@ -5,6 +5,7 @@
 
 #include "LinkedList.h"
 #include <DBClients.h>
+#include <time.h>
 
 void afficher_noeud(xmlNodePtr noeud);
 typedef void (*fct_parcours_t)(xmlNodePtr);
@@ -21,6 +22,12 @@ int main() {
     DBBooks  *dbBooks = (DBBooks*) malloc(sizeof(DBBooks));
     getClients(db);
     getBooks(dbBooks);
+
+    //Client *new = readClient();
+    //addClient(db, new);
+
+
+    sortAlphaClients(db->clients);
 
 
     /** Code projet */

@@ -7,7 +7,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "DBBooks.h"
 
 typedef struct Node_type{
     void *value;
@@ -26,7 +25,6 @@ Node *createNewNode(void *value);
 void printLinkedList(Node *linkedList);
 unsigned int getSize(Node *head);
 void *get(Node *head, int index);
-void sortAlphaBooks(DBBooks *db);
 void swap(Node *n1, Node *n2);
 
 #endif //LABIBLIODEFRANCK_LINKEDLIST_H

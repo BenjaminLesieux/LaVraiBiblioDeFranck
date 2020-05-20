@@ -1,13 +1,55 @@
 <clients>
     <client id = '0'>
-        <name>Thomas</name>
+        <name>Armand </name>
+        <surname>Vérité</surname>
+        <adress>Ozark</adress>
+        <email>jedislavérité@gmail.com</email>
+        <job>vérité</job>
+    </client>
+    <client id = '1'>
+        <name>Camille</name>
         <surname>Henry</surname>
         <adress>2 rue de tourcoing</adress>
         <email>thomas.henry@hyhy.fr</email>
         <job>Casanier</job>
     </client>
-    <client id = '1'>
-        <name>Camille</name>
+    <client id = '2'>
+        <name>Damien</name>
+        <surname>Suppo</surname>
+        <adress>dtc</adress>
+        <email>acidegas@trique.fr</email>
+        <job>intestin</job>
+    </client>
+    <client id = '3'>
+        <name>Dominic</name>
+        <surname>Thiem</surname>
+        <adress>Autriche</adress>
+        <email>tennis@autriche.heil</email>
+        <job>Tennismen</job>
+    </client>
+    <client id = '4'>
+        <name>Dominique </name>
+        <surname>Stéphan</surname>
+        <adress>Puy du Dom</adress>
+        <email>domdom@somsom.com</email>
+        <job>Dompteur</job>
+    </client>
+    <client id = '5'>
+        <name>Emmanuel</name>
+        <surname>Biceps</surname>
+        <adress>à la gym</adress>
+        <email>poussepousse@poids.fessier</email>
+        <job>Muscu</job>
+    </client>
+    <client id = '6'>
+        <name>Stephen</name>
+        <surname>Chybre</surname>
+        <adress>Gland - Suisse</adress>
+        <email>stph@chybre.69</email>
+        <job>420</job>
+    </client>
+    <client id = '7'>
+        <name>Thomas</name>
         <surname>Henry</surname>
         <adress>2 rue de tourcoing</adress>
         <email>thomas.henry@hyhy.fr</email>

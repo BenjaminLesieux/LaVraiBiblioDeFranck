@@ -137,11 +137,19 @@ void *getClients(DBClients *db) {
     }
 }
 
-void sortAlphaClients(DBClients *db) {
-    Node *head = db->clients;
+void sortAlphaClients(Node *head) {
 
-    for (int i = 0; i < db->numClients; i++) {
+    for (Node *n = head; n->next != NULL; n = n->next) {
+        for (Node *next = head->next; next->next != NULL; next = next->next) {
+            Client *c = n->value;
+            Client *cn = n->next->value;
 
+            if (strcmp(c->name, cn->name) > 0) {
+                swap(n, n->next);
+            }
+
+            sortAlphaClients(next);
+        }
     }
 }
 

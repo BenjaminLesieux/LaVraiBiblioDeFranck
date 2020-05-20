@@ -43,6 +43,6 @@ void printDB(DBClients *db);
 
 void updateXmlDB(DBClients *db);
 void *getClients(DBClients *db);
-void sortAlphaClients(DBClients *db);
+void sortAlphaClients(Node *head);
 
 #endif //LABIBLIODEFRANCK_DBCLIENTS_H
