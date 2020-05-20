@@ -1,0 +1,16 @@
+<clients>
+    <client id = '0'>
+        <name>Thomas</name>
+        <surname>Henry</surname>
+        <adress>2 rue de tourcoing</adress>
+        <email>thomas.henry@hyhy.fr</email>
+        <job>Casanier</job>
+    </client>
+    <client id = '1'>
+        <name>Camille</name>
+        <surname>Henry</surname>
+        <adress>2 rue de tourcoing</adress>
+        <email>thomas.henry@hyhy.fr</email>
+        <job>Casanier</job>
+    </client>
+</clients>

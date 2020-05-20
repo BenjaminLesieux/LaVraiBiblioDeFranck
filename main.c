@@ -19,44 +19,21 @@ int main() {
 
     DBClients *db = (DBClients*) malloc(sizeof(DBClients));
     DBBooks  *dbBooks = (DBBooks*) malloc(sizeof(DBBooks));
-    dbBooks->numBooks = 0;
     getClients(db);
     getBooks(dbBooks);
-    //printf("\n%d", db->numClients);
-    printf("\n num books : %d", dbBooks->numBooks);
 
-    // Fin de récupération
 
-    //Client *cl = get(db->clients, 3); // Vérification de la bonne présence des clients
+    /** Code projet */
 
-   updateXmlDB(db); // A la fin, toujours update le fichier xml
-   updateXmlDBBooks(dbBooks);
+
+
+    /** Fin code projet */
+
+    updateXmlDB(db); // A la fin, toujours update le fichier xml
+    updateXmlDBBooks(dbBooks);
 
     return 0;
 }
 
-void afficher_noeud(xmlNodePtr noeud) {
-    if (noeud->type == XML_ELEMENT_NODE) {
-        xmlChar *chemin = xmlGetNodePath(noeud);
-        if (noeud->children != NULL && noeud->children->type == XML_TEXT_NODE) {
-            xmlChar *contenu = xmlNodeGetContent(noeud);
-            printf("%s -> %s\n", chemin, contenu);
-            xmlFree(contenu);
-        } else {
-            printf("%s\n", chemin);
-        }
-        xmlFree(chemin);
-    }
-}
 
-void parcours_prefixe(xmlNodePtr noeud, fct_parcours_t f) {
-    xmlNodePtr n;
-
-    for (n = noeud; n != NULL; n = n->next) {
-        f(n);
-        if ((n->type == XML_ELEMENT_NODE) && (n->children != NULL)) {
-            parcours_prefixe(n->children, f);
-        }
-    }
-}
 

@@ -92,7 +92,7 @@ void *getClients(DBClients *db) {
     Client *client = NULL;
     int numClients;
 
-    int childs = xmlChildElementCount(root);
+    int childs = (int) xmlChildElementCount(root);
 
     printf("\n%d childs", childs);
 
@@ -134,6 +134,14 @@ void *getClients(DBClients *db) {
         }
 
         addClient(db, client);
+    }
+}
+
+void sortAlphaClients(DBClients *db) {
+    Node *head = db->clients;
+
+    for (int i = 0; i < db->numClients; i++) {
+
     }
 }
 

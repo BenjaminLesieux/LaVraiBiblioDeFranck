@@ -167,3 +167,12 @@ void *get(Node *head, int index) {
 
     return node->value;
 }
+
+void swap(Node *n1, Node *n2) {
+
+    if (n1 == NULL || n2 == NULL) return;
+
+    void *value = n1->value;
+    n1->value = n2->value;
+    n2->value = value;
+}

@@ -1,0 +1,16 @@
+<books>
+    <book id = '0'>
+        <title>Harry Potter et la chambre des secrets</title>
+        <author> Jk Rowling </author>
+        <code> FAN-001 - </code>
+        <number>20</number>
+        <disp>20</disp>
+   </book>
+    <book id = '1'>
+        <title>Harry Potter et la chambre des secrets 2</title>
+        <author> Jk Rowling </author>
+        <code> FAN-001 - </code>
+        <number>20</number>
+        <disp>20</disp>
+   </book>
+</books>

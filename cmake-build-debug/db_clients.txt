@@ -1,0 +1,234 @@
+<clients>
+    <client>
+        <name>Thomas</name>
+        <surname>Henry</surname>
+        <adress>2 rue de tourcoing</adress>
+        <email>thomas.henry@hyhy.fr</email>
+        <job>Casanier</job>
+    </client>
+</clients>
+
+
+
+    xmlDocPtr doc = xmlParseFile("dbclients.xml");
+    xmlNodePtr root = xmlDocGetRootElement(doc);
+    xmlNodePtr child = root->children->next;
+    xmlNodePtr current = NULL;
+    xmlChar *content;
+    Client *client;
+    Node *head = NULL;
+    int i = 0;
+    int k = 0;
+
+    printf("\nOutta da loop");
+    while (child->next->next != NULL) {
+        printf("\nInside da loop");
+        client = (Client *) malloc(sizeof(Client));
+        current = child->children->next;
+
+        printf("%s", current->content);
+
+        while (current->next->next != NULL && i < 5) {
+
+            xmlChar *content = xmlNodeGetContent(current);
+
+            switch(i) {
+                case 0:
+                    client->name = (char*) content;
+                    break;
+                case 1:
+                    client->surname = (char*) content;
+                    break;
+                case 2:
+                    client->adress = (char*) content;
+                    break;
+                case 3:
+                    client->email = (char*) content;
+                    break;
+                case 4:
+                    client->job = (char*) content;
+                    break;
+                default:
+                    break;
+            }
+
+            xmlFree(content);
+            i++;
+        }
+
+        if (k == 0) {
+            head = createLinkedList(client);
+            db->clients = head;
+        } else {
+            db->clients->next = createNewNode(client);
+        }
+
+        db->numClients++;
+        child = child->next->next;
+        k++;
+    }
+
+    xmlChar *cont = xmlNodeGetContent(node->children);
+    printf("\n NODE CH : %s", cont);
+
+    xmlChar *cont2 = xmlNodeGetContent(node->children->next->next->next);
+    printf("\n NEXT CH %s %s", cont2, xmlGetNodePath(node->children->next));
+
+    xmlChar *cont3 = xmlNodeGetContent(node->children->next->children->next);
+    printf("\n CH OD NEXT %s %s", cont3, xmlGetNodePath(node->children->next->children->next->next->next));
+
+    xmlFree(cont);
+    xmlFree(cont2);
+    xmlFree(cont3);
+
+ if (strstr(line, "<client>") && !strstr(line, "<clients>")) {
+            attr = 0;
+            printf("\nAO");
+        }
+
+        else if (strstr(line, "</client>") && !strstr(line, "</clients>")) {
+            printf("\noh");
+            client = (Client*) malloc(sizeof(Client));
+            numClients++;
+        }
+
+        if (strstr(line, "<name>") && !strstr(line, "</clients>")) {
+            strtok(line, "</name>");
+            client->name = line;
+            attr++;
+        }
+
+        else if (strstr(line, "<surname>")) {
+            strtok(line, "</surname>");
+            client->surname = line;
+            attr++;
+        }
+
+        else if (strstr(line, "<adress>")) {
+            strtok(line, "</adress>");
+            client->adress = line;
+            attr++;
+        }
+
+        else if (strstr(line, "<email>")) {
+            strtok(line, "</email>");
+            client->email = line;
+            attr++;
+        }
+
+        else if (strstr(line, "<job>")) {
+            strtok(line, "</job>");
+            client->job = line;
+            attr++;
+
+            if(numClients == 1) {
+                head = createLinkedList(client);
+                db->clients = head;
+            }
+
+            else {
+                db->clients->next = createNewNode(client);
+            }
+        }
+
+while (!strstr(fgets(line, 200, file), "</clients>")) {
+
+        printf("\n%s", line);
+
+        if (strstr(line, "<client>")) continue;
+
+        else if (strstr(line, "</client>")) {
+            attr = 1;
+            client = (Client*) malloc(sizeof(Client));
+            numClients++;
+        }
+
+        switch(attr) {
+            case 1: // name
+                strtok(line, "<name>");
+                strtok(line, "</name>");
+                client->name = line;
+                attr++;
+                break;
+            case 2: //surName
+                strtok(line, "<name>");
+                strtok(line, "<surname>");
+                client->surname = line;
+                attr++;
+                break;
+            case 3: //adress
+                strtok(line, "<adress>");
+                strtok(line, "</adress>");
+                client->surname = line;
+                attr++;
+                break;
+            case 4: //email
+                strtok(line, "<email>");
+                strtok(line, "</email>");
+                client->surname = line;
+                attr++;
+                break;
+            case 5: //job
+                strtok(line, "<job>");
+                strtok(line, "</job>");
+                client->surname = line;
+
+                if (numClients == 1) {
+                    head = createLinkedList(client);
+                    db->clients = head;
+                }
+
+                else {
+                    db->clients = createLinkedList(client);
+                }
+
+                break;
+            default:
+                break;
+        }
+    }
+
+    db->numClients = numClients-1;
+
+<books>
+    <book id = '0'>
+        <title>Harry Potter et la chambre des secrets</title>
+        <author> Jk Rowling </author>
+        <code> FAN-001 - </code>
+        <number> 20 </number>
+        <disp> 20 </disp>
+    </book>
+        <book id = '1'>
+        <title>Harry Potter et la chambre des secrets 2</title>
+        <author> Jk Rowling </author>
+        <code> FAN-001 - </code>
+        <number> 20 </number>
+        <disp> 20 </disp>
+    </book>
+</books>
+
+
+void afficher_noeud(xmlNodePtr noeud) {
+    if (noeud->type == XML_ELEMENT_NODE) {
+        xmlChar *chemin = xmlGetNodePath(noeud);
+        if (noeud->children != NULL && noeud->children->type == XML_TEXT_NODE) {
+            xmlChar *contenu = xmlNodeGetContent(noeud);
+            printf("%s -> %s\n", chemin, contenu);
+            xmlFree(contenu);
+        } else {
+            printf("%s\n", chemin);
+        }
+        xmlFree(chemin);
+    }
+}
+
+void parcours_prefixe(xmlNodePtr noeud, fct_parcours_t f) {
+    xmlNodePtr n;
+
+    for (n = noeud; n != NULL; n = n->next) {
+        f(n);
+        if ((n->type == XML_ELEMENT_NODE) && (n->children != NULL)) {
+            parcours_prefixe(n->children, f);
+        }
+    }
+}
