@@ -1,0 +1,5 @@
+Employee id;Manager id;First Name;Last Name;Email;Position
+001;;Brian;Williams;bwilliams@company.com;Chief Executive Officer
+123;001;John;Smith;jsmith@company.com;Sales Manager
+456;001;Robert;Anderson;randerson@company.com;Marketing Manager
+789;123;David;Moore;dmoore@company.com;Sales Agent
