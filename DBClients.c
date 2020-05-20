@@ -71,11 +71,11 @@ void updateXmlDB(DBClients *db) {
         current = get(db->clients, i);
 
         fprintf(file, "    <client id = '%d'>\n"
-                      "        <name> %s </name>\n"
-                      "        <surname> %s </surname>\n"
-                      "        <adress> %s </adress>\n"
-                      "        <email> %s </email>\n"
-                      "        <job> %s </job>\n"
+                      "        <name>%s</name>\n"
+                      "        <surname>%s</surname>\n"
+                      "        <adress>%s</adress>\n"
+                      "        <email>%s</email>\n"
+                      "        <job>%s</job>\n"
                       "    </client>\n", i, current->name, current->surname, current->adress, current->email,
                 current->job);
     }

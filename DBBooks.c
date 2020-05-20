@@ -56,18 +56,18 @@ void updateXmlDBBooks(DBBooks *db) {
 
     if (file == NULL) fopen("dbbooks.xml", "c");
 
-    fprintf(file, "<books>");
+    fprintf(file, "<books>\n");
 
     for(int i = 0; i < db->numBooks; i++) {
         current = get(db->books, i);
 
         fprintf(file, "    <book id = '%d'>\n"
-                      "        <title> %s </title>\n"
-                      "        <author> %s </author>\n"
-                      "        <code> %s </code>\n"
-                      "        <number> %d </number>\n"
-                      "        <disp> %d </disp>\n"
-                      "   </book>/n", i, current->title, current->author, current->code, current->num, current->disp);
+                      "        <title>%s</title>\n"
+                      "        <author>%s</author>\n"
+                      "        <code>%s</code>\n"
+                      "        <number>%d</number>\n"
+                      "        <disp>%d</disp>\n"
+                      "   </book>\n", i, current->title, current->author, current->code, current->num, current->disp);
     }
 
     fprintf(file, "</books>");
@@ -75,7 +75,7 @@ void updateXmlDBBooks(DBBooks *db) {
 }
 
 void *getBooks(DBBooks *db) {
-    xmlDocPtr doc = xmlParseFile("dbclients.xml");
+    xmlDocPtr doc = xmlParseFile("dbbooks.xml");
     xmlNodePtr root = xmlDocGetRootElement(doc);
     xmlNodePtr currentChild = NULL;
     Book *book = NULL;
@@ -113,12 +113,12 @@ void *getBooks(DBBooks *db) {
 
             else if (strcmp((char*)content->name, "number") == 0) {
                 printf("\n Found a number");
-                book->num = val;
+                book->num = atoi(val);
             }
 
             else if (strcmp((char*)content->name, "disp") == 0) {
                 printf("\n Found a disp");
-                book->disp = val;
+                book->disp = atoi(val);
             }
         }
 

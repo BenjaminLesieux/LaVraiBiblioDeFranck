@@ -18,14 +18,19 @@ int main() {
      * */
 
     DBClients *db = (DBClients*) malloc(sizeof(DBClients));
+    DBBooks  *dbBooks = (DBBooks*) malloc(sizeof(DBBooks));
+    dbBooks->numBooks = 0;
     getClients(db);
-    printf("\n%d", db->numClients);
+    getBooks(dbBooks);
+    //printf("\n%d", db->numClients);
+    printf("\n num books : %d", dbBooks->numBooks);
 
     // Fin de récupération
 
-    Client *cl = get(db->clients, 3); // Vérification de la bonne présence des clients
+    //Client *cl = get(db->clients, 3); // Vérification de la bonne présence des clients
 
-    updateXmlDB(db); // A la fin, toujours update le fichier xml
+   updateXmlDB(db); // A la fin, toujours update le fichier xml
+   updateXmlDBBooks(dbBooks);
 
     return 0;
 }
