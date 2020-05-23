@@ -297,10 +297,12 @@ void removeBookMenu(DBBooks *db, DBClients *dbc) {
             int value = 0;
 
             do {
+
+
                 printf("\n Combien d'exemplaires (parmi %d) de %s souhaitez vous supprimer ? : ",
                         toDelete->disp, toDelete->title);
                 valid = scanf("%d", &value);
-            } while (valid == 0 || value  < 1 || value > toDelete->disp);
+            } while (valid == 0 || value  < 0 || value > toDelete->disp);
 
             removeBook(db, toDelete, value);
 

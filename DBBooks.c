@@ -133,7 +133,7 @@ void removeBook(DBBooks *db, Book *toDelete, int howMany) {
                 b->disp = b->disp - howMany;
             }
 
-            if (b->num == 0) {
+            if (b->num == 0 && b->disp == 0) {
                 db->numBooks--;
                 removeAt(&head, i);
                 free(toDelete);

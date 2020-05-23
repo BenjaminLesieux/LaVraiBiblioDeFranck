@@ -31,8 +31,8 @@
         <title>Hunger Games 2</title>
         <author>jspp</author>
         <code>FAN-001</code>
-        <number>7</number>
-        <disp>7</disp>
+        <number>4</number>
+        <disp>4</disp>
    </book>
     <book id = '5'>
         <title>Interpol</title>
@@ -46,7 +46,7 @@
         <author>Abendsen</author>
         <code>FAN-003</code>
         <number>9</number>
-        <disp>9</disp>
+        <disp>8</disp>
    </book>
     <book id = '7'>
         <title>Le meurtre de Saint Peters</title>
@@ -56,13 +56,6 @@
         <disp>10</disp>
    </book>
     <book id = '8'>
-        <title>Silent Hill</title>
-        <author>Clara</author>
-        <code>THR-001</code>
-        <number>3</number>
-        <disp>2</disp>
-   </book>
-    <book id = '9'>
         <title>Un amour de jeunesse</title>
         <author>Henry</author>
         <code>POL-001</code>
