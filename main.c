@@ -4,12 +4,10 @@
 #include <libxml/tree.h>
 
 #include "LinkedList.h"
-#include <DBClients.h>
+#include "DBClients.h"
+#include "DBBooks.h"
 #include <time.h>
-
-void afficher_noeud(xmlNodePtr noeud);
-typedef void (*fct_parcours_t)(xmlNodePtr);
-void parcours_prefixe(xmlNodePtr noeud, fct_parcours_t f);
+#include "Menu.h"
 
 
 int main() {
@@ -23,11 +21,15 @@ int main() {
     getClients(db);
     getBooks(dbBooks);
 
+
     //Client *new = readClient();
     //addClient(db, new);
 
+    welcome(db, dbBooks);
 
-    sortAlphaClients(db->clients);
+    time_t t = time(NULL);
+
+    // il peut y avoir moins coûteux en énergie
 
 
     /** Code projet */
@@ -36,11 +38,20 @@ int main() {
 
     /** Fin code projet */
 
-    updateXmlDB(db); // A la fin, toujours update le fichier xml
-    updateXmlDBBooks(dbBooks);
+    updateXmlDB(db); // UPDATE CLIENTS
+    updateXmlDBBooks(dbBooks); // UPDATE BOOKS
+
+    freeList(db->clients);
+    freeList(dbBooks->books);
+    free(db);
+    free(dbBooks);
+
+    printf("\nSauvegarde de la database en %ld secondes ", time(NULL) - t);
 
     return 0;
 }
+
+
 
 
 

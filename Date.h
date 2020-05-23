@@ -14,9 +14,11 @@ typedef struct {
     unsigned int year;
 } Date;
 
-void makeDate(Date *targetDate);
-void showDate(Date *targetDate);
-int compareDate(Date *date1, Date *date2);
+Date *makeDate();
+Date *readFromString(char *string);
+
+void showDate(Date **targetDate);
+int compareDate(Date *date2); // 1ère Date sera tjrs la date d'aujourd'hui
 int coherentDate(int day, int month, int year); // Vérifie si une date est cohérente (empêche donc les 30 fevrier)
 
 #endif //LABIBLIODEFRANCK_DATE_H

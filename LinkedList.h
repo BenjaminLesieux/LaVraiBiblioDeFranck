@@ -25,6 +25,8 @@ Node *createNewNode(void *value);
 void printLinkedList(Node *linkedList);
 unsigned int getSize(Node *head);
 void *get(Node *head, int index);
+Node *getNodeAt(Node *head, int index);
 void swap(Node *n1, Node *n2);
+void freeList(Node *head);
 
 #endif //LABIBLIODEFRANCK_LINKEDLIST_H

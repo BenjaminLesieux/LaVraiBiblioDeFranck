@@ -253,6 +253,33 @@ LinkedList.c.s:
 	$(MAKE) -f CMakeFiles/LaBiblioDeFranck.dir/build.make CMakeFiles/LaBiblioDeFranck.dir/LinkedList.c.s
 .PHONY : LinkedList.c.s
 
+Menu.o: Menu.c.o
+
+.PHONY : Menu.o
+
+# target to build an object file
+Menu.c.o:
+	$(MAKE) -f CMakeFiles/LaBiblioDeFranck.dir/build.make CMakeFiles/LaBiblioDeFranck.dir/Menu.c.o
+.PHONY : Menu.c.o
+
+Menu.i: Menu.c.i
+
+.PHONY : Menu.i
+
+# target to preprocess a source file
+Menu.c.i:
+	$(MAKE) -f CMakeFiles/LaBiblioDeFranck.dir/build.make CMakeFiles/LaBiblioDeFranck.dir/Menu.c.i
+.PHONY : Menu.c.i
+
+Menu.s: Menu.c.s
+
+.PHONY : Menu.s
+
+# target to generate assembly for a file
+Menu.c.s:
+	$(MAKE) -f CMakeFiles/LaBiblioDeFranck.dir/build.make CMakeFiles/LaBiblioDeFranck.dir/Menu.c.s
+.PHONY : Menu.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -303,6 +330,9 @@ help:
 	@echo "... LinkedList.o"
 	@echo "... LinkedList.i"
 	@echo "... LinkedList.s"
+	@echo "... Menu.o"
+	@echo "... Menu.i"
+	@echo "... Menu.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

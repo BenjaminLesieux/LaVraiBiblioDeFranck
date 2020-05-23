@@ -34,13 +34,11 @@ Node *createNewNode(void *value) {
  * */
 void add(Node *headNode, Node *newNode) {
 
-    Node *lastNode = headNode;
+    Node *current;
 
-    while (lastNode->next != NULL) {
-        lastNode = lastNode->next;
-    }
+    for (current = headNode; current != NULL && current->next != NULL; current = current->next);
 
-    lastNode->next = newNode;
+    current->next = newNode;
 }
 
 /**
@@ -168,6 +166,23 @@ void *get(Node *head, int index) {
     return node->value;
 }
 
+Node *getNodeAt(Node *head, int index) {
+    int i = 0;
+    Node *node = head;
+
+    while (node != NULL && i < (index)) {
+        node = node->next;
+        i++;
+    }
+
+    if (node == NULL) {
+        printf("\nErreur de récupération de noeud");
+        return NULL;
+    }
+
+    return node;
+}
+
 void swap(Node *n1, Node *n2) {
 
     if (n1 == NULL || n2 == NULL) return;
@@ -175,4 +190,15 @@ void swap(Node *n1, Node *n2) {
     void *value = n1->value;
     n1->value = n2->value;
     n2->value = value;
+}
+
+void freeList(Node *head) {
+    Node *tmp;
+
+    while (head != NULL)
+    {
+        tmp = head;
+        head = head->next;
+        free(tmp);
+    }
 }

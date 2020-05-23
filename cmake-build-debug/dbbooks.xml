@@ -1,16 +1,72 @@
 <books>
     <book id = '0'>
-        <title>Harry Potter et la chambre des secrets</title>
+        <title>50 Shades of Grey</title>
+        <author>Un simp</author>
+        <code>THR-000</code>
+        <number>10</number>
+        <disp>10</disp>
+   </book>
+    <book id = '1'>
+        <title>Dictionnaire du latin</title>
+        <author>Henri Goelzer</author>
+        <code>ROM-000</code>
+        <number>10</number>
+        <disp>10</disp>
+   </book>
+    <book id = '2'>
+        <title>Divergente</title>
+        <author>Aucune idée</author>
+        <code>ROM-001</code>
+        <number>3</number>
+        <disp>2</disp>
+   </book>
+    <book id = '3'>
+        <title>Harry Potter et la chambre des secrets 2</title>
         <author> Jk Rowling </author>
-        <code> FAN-001 - </code>
+        <code>FAN-000</code>
         <number>20</number>
         <disp>20</disp>
    </book>
-    <book id = '1'>
-        <title>Harry Potter et la chambre des secrets 2</title>
-        <author> Jk Rowling </author>
-        <code> FAN-001 - </code>
-        <number>20</number>
-        <disp>20</disp>
+    <book id = '4'>
+        <title>Hunger Games 2</title>
+        <author>jspp</author>
+        <code>FAN-001</code>
+        <number>7</number>
+        <disp>7</disp>
+   </book>
+    <book id = '5'>
+        <title>Interpol</title>
+        <author>Carlos Dengler</author>
+        <code>FAN-002</code>
+        <number>10</number>
+        <disp>10</disp>
+   </book>
+    <book id = '6'>
+        <title>La maître du haut chateau</title>
+        <author>Abendsen</author>
+        <code>FAN-003</code>
+        <number>9</number>
+        <disp>9</disp>
+   </book>
+    <book id = '7'>
+        <title>Le meurtre de Saint Peters</title>
+        <author>William Plume</author>
+        <code>POL-000</code>
+        <number>10</number>
+        <disp>10</disp>
+   </book>
+    <book id = '8'>
+        <title>Silent Hill</title>
+        <author>Clara</author>
+        <code>THR-001</code>
+        <number>3</number>
+        <disp>2</disp>
+   </book>
+    <book id = '9'>
+        <title>Un amour de jeunesse</title>
+        <author>Henry</author>
+        <code>POL-001</code>
+        <number>10</number>
+        <disp>10</disp>
    </book>
 </books>

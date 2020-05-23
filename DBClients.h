@@ -11,6 +11,7 @@
 #include <libxml/tree.h>
 #include <libxml/xmlwriter.h>
 #include <string.h>
+#include "Date.h"
 
 typedef struct Client_type {
     char *name;
@@ -18,7 +19,8 @@ typedef struct Client_type {
     char *adress;
     char *email;
     char *job;
-    Book *borrowed;
+    char **borrowed;
+    Date **dates;
     int numBooks;
 
 }Client;
@@ -35,14 +37,16 @@ void removeClient(DBClients *db, Client *client);
 void borrow(Client *client, Book *book);
 void give(Client *client, Book *book);
 
-void sortAlph(DBClients *db);
 void sortNum(DBClients *db);
+
+void showClients(DBClients *db);
 
 int isLate(Client *client);
 void printDB(DBClients *db);
-
 void updateXmlDB(DBClients *db);
 void *getClients(DBClients *db);
 void sortAlphaClients(Node *head);
+void showBorrowedBooks(DBClients *dbc, DBBooks *dbb);
+void updateCode(DBBooks *db, DBClients  *dbc, Book *book);
 
 #endif //LABIBLIODEFRANCK_DBCLIENTS_H

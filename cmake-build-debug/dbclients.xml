@@ -5,54 +5,94 @@
         <adress>Ozark</adress>
         <email>jedislavérité@gmail.com</email>
         <job>vérité</job>
+        <emprunts>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+        </emprunts>
     </client>
     <client id = '1'>
-        <name>Camille</name>
-        <surname>Henry</surname>
-        <adress>2 rue de tourcoing</adress>
-        <email>thomas.henry@hyhy.fr</email>
-        <job>Casanier</job>
+        <name>Benjamin</name>
+        <surname>Lezieux</surname>
+        <adress>La Chapelle en Serval</adress>
+        <email>ben.lesieux@gmail.com</email>
+        <job>Codeur</job>
+        <emprunts>
+            <emprunt date = '12/8/2020'>FAN-003</emprunt>
+            <emprunt date = '12/8/2020'>FAN-003</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+        </emprunts>
     </client>
     <client id = '2'>
-        <name>Damien</name>
-        <surname>Suppo</surname>
-        <adress>dtc</adress>
-        <email>acidegas@trique.fr</email>
-        <job>intestin</job>
+        <name>Diego</name>
+        <surname>Sanglier</surname>
+        <adress>La forêt </adress>
+        <email>groingroin@sanglier.dg</email>
+        <job>Mangeur et Buveur</job>
+        <emprunts>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+        </emprunts>
     </client>
     <client id = '3'>
-        <name>Dominic</name>
-        <surname>Thiem</surname>
-        <adress>Autriche</adress>
-        <email>tennis@autriche.heil</email>
-        <job>Tennismen</job>
+        <name>Henry</name>
+        <surname>Dupontoi</surname>
+        <adress>Paris</adress>
+        <email>hrydptoi@gmail.com</email>
+        <job>Riche</job>
+        <emprunts>
+            <emprunt date = '13/2/2021'>ROM-001</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+        </emprunts>
     </client>
     <client id = '4'>
-        <name>Dominique </name>
-        <surname>Stéphan</surname>
-        <adress>Puy du Dom</adress>
-        <email>domdom@somsom.com</email>
-        <job>Dompteur</job>
+        <name>Quentin</name>
+        <surname>Vincent</surname>
+        <adress>Paris</adress>
+        <email>quentin.vincent@efrei.net</email>
+        <job>Etudiant</job>
+        <emprunts>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+        </emprunts>
     </client>
     <client id = '5'>
-        <name>Emmanuel</name>
-        <surname>Biceps</surname>
-        <adress>à la gym</adress>
-        <email>poussepousse@poids.fessier</email>
-        <job>Muscu</job>
+        <name>Régis</name>
+        <surname>Lesieux</surname>
+        <adress>La Chapelle en Serval</adress>
+        <email>regis.lesieux@papa.fr</email>
+        <job>Géodis</job>
+        <emprunts>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+        </emprunts>
     </client>
     <client id = '6'>
-        <name>Stephen</name>
-        <surname>Chybre</surname>
-        <adress>Gland - Suisse</adress>
-        <email>stph@chybre.69</email>
-        <job>420</job>
+        <name>Saez</name>
+        <surname>LeChanteur</surname>
+        <adress>Paris</adress>
+        <email>saez@jeunetcon.com</email>
+        <job>Chanteur</job>
+        <emprunts>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+        </emprunts>
     </client>
     <client id = '7'>
         <name>Thomas</name>
-        <surname>Henry</surname>
-        <adress>2 rue de tourcoing</adress>
-        <email>thomas.henry@hyhy.fr</email>
-        <job>Casanier</job>
+        <surname>Dutronc</surname>
+        <adress>Paris</adress>
+        <email>ttdd@gmail.com</email>
+        <job>Chanteur</job>
+        <emprunts>
+            <emprunt date = '12/6/2021'>THR-001</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
+        </emprunts>
     </client>
 </clients>
