@@ -50,3 +50,18 @@ void showDate(Date **targetDate) {
             printf("\n Aucun emprunt - %d ", i);
     }
 }
+
+int compareDate(Date *date) {
+    int day, month, year;
+    time_t now;
+    time(&now);
+    struct tm *local = localtime(&now);
+    day = local->tm_mday;
+    month = local->tm_mon + 1;
+    year = local->tm_year + 1900;
+    if(year < date->year || (year==date->year && month <date->month) ||
+        (year ==date->year && month == date->month && day < date->day))
+        return 1;
+
+    else return 0;
+}

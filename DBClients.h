@@ -22,7 +22,7 @@ typedef struct Client_type {
     char **borrowed;
     Date **dates;
     int numBooks;
-
+    int penalties;
 }Client;
 
 typedef struct DBClients_type {
@@ -36,7 +36,7 @@ void addClient(DBClients *db, Client *client);
 void removeClient(DBClients *db, Client *client);
 void borrow(Client *client, Book *book);
 void give(Client *client, Book *book);
-
+void updateLogs(Client *c, DBBooks *db);
 void sortNum(DBClients *db);
 
 void showClients(DBClients *db);

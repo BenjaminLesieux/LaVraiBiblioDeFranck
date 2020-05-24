@@ -78,7 +78,7 @@ void clientMenu(DBClients *db, DBBooks *dbb) {
                     sortAlphaClients(db->clients); // SORT IN ALPHABETICAL ORDER
                     break;
                 case 2:
-                    removeClientMenu(db);
+                    removeClientMenu(db, dbb);
                     break;
                 case 3:
                     borrowMenu(db, dbb);
@@ -131,7 +131,7 @@ void bibliMenu(DBClients *dbc, DBBooks *dbb) {
     } while (onMenu == 1 || valid == 0 || choice < 1 || choice > 3);
 }
 
-void removeClientMenu(DBClients *db) {
+void removeClientMenu(DBClients *db, DBBooks *dbb) {
     int onMenu = 1;
     int valid = 0;
     int choice;
@@ -144,7 +144,7 @@ void removeClientMenu(DBClients *db) {
         for (i = 0; i < db->numClients; i++) {
             c = get(db->clients, i);
             if (c->numBooks == 0)
-                printf("\n %d - Supprimer %s %s (Aucun emprunt) ", i, c->name, c->surname);
+                printf("\n %d - %s Supprimer %s %s (Aucun emprunt) %s ", i, RED, c->name, c->surname, WHITE);
             else
                 printf("\n %d - Supprimer %s %s ", i, c->name, c->surname);
         }
@@ -155,7 +155,9 @@ void removeClientMenu(DBClients *db) {
         getchar();
 
         if (valid == 1 && choice > 0 && choice < db->numClients) {
-            removeClient(db, get(db->clients, choice));
+            c = get(db->clients, choice);
+            updateLogs(c, dbb);
+            removeClient(db, c);
         }
 
         else if (valid == 1 && choice == i) {
@@ -187,7 +189,7 @@ void borrowMenu(DBClients *db, DBBooks *dbb) {
         valid = scanf("%d", &choice);
         getchar();
 
-        if (valid == 1 && choice > 0 && choice < db->numClients) {
+        if (valid == 1 && choice >= 0 && choice < db->numClients) {
 
             int sub_choice;
             int sub_valid;
@@ -205,7 +207,7 @@ void borrowMenu(DBClients *db, DBBooks *dbb) {
                 sub_valid = scanf("%d", &sub_choice);
                 getchar();
 
-                if (sub_valid == 1 && sub_choice > 0 && sub_choice < dbb->numBooks) {
+                if (sub_valid == 1 && sub_choice >= 0 && sub_choice < dbb->numBooks) {
                     c = get(db->clients, choice);
                     b = get(dbb->books, sub_choice);
 
@@ -281,9 +283,9 @@ void removeBookMenu(DBBooks *db, DBClients *dbc) {
         for (i = 1; i < db->numBooks; i++) {
             b = get(db->books, i-1);
             if (b->disp == b->num)
-                printf("\n %d - Supprimer %s (%s) (Aucun emprunt)", i, b->title, b->code);
+                printf("\n %d - %s Supprimer %s (%s) (Aucun emprunt) %s", i, RED, b->title, b->code, WHITE);
             else
-                printf("\n %d - Supprimer %s (%s) ", i, b->title, b->code);
+                printf("\n %d - Supprimer des exemplaires de %s (%s) ", i, b->title, b->code);
         }
 
         printf("\n %d - Quitter ", i);
@@ -398,7 +400,7 @@ void giveMenu(DBClients *dbc, DBBooks *dbb) {
         for (i = 0; i < dbc->numClients; i++) {
             c = get(dbc->clients, i);
             if (c->numBooks > 0)
-                printf("\n %d - %s %s possède des livres ", i, c->name, c->surname);
+                printf("\n %d - %s %s %s possède des livres %s", i, GREEN, c->name, c->surname, WHITE);
             else
                 printf("\n %d - %s %s n'a pas de livres ", i, c->name, c->surname);
         }
@@ -414,6 +416,7 @@ void giveMenu(DBClients *dbc, DBBooks *dbb) {
             int subValid;
             int subChoice;
             int j;
+            int compare;
             Book *b;
 
             if (c->numBooks != 0) {
@@ -430,14 +433,29 @@ void giveMenu(DBClients *dbc, DBBooks *dbb) {
                     subValid = scanf("%d", &subChoice);
 
                     if (subChoice >= 1 && subChoice <= c->numBooks && subValid == 1) {
-                        printf("\ntest");
                         b = byCode(dbb, c->borrowed[subChoice-1]);
                         give(c, b);
+                        compare = compareDate(c->dates[subChoice-1]);
+
+                        if (compare == 0) {
+                            printf("\n %s Ce livre a été rendu en retard, %s %s prend 1 pénalité"
+                                   "\n Pénalités (%d/3) %s", RED, c->name, c->surname, c->penalties, WHITE);
+                            c->penalties++;
+
+                            if (c->penalties > 3) {
+                                printf("\n %s Le maximum de pénalités est atteint, le client a été supprimé "
+                                       "%s", RED, WHITE);
+                                updateLogs(c, dbb);
+                                removeClient(dbc, c);
+                            }
+                        }
+
                         break;
                     }
 
                 } while (subValid == 0 || subChoice < 1 || subChoice > (j+1));
-            } else printf("\n Ce client  ne peut pas rendre de livres qu'il ne possède pas");
+            } else printf("\n %s Ce client  ne peut pas rendre de livres qu'il ne possède pas %s",
+                    RED, WHITE);
         }
         else if (valid == 1 && choice == i) {
             onMenu = 0;

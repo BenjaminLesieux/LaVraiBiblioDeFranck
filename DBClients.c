@@ -54,6 +54,7 @@ Client *readClient() {
     client->dates = dates;
 
     client->numBooks = 0;
+    client->penalties = 0;
 
     return client;
 }
@@ -84,20 +85,21 @@ void removeClient(DBClients *db, Client *client) {
     Node *head = db->clients;
     Client *c;
 
-
     for (int i = 0; i < db->numClients; i++) {
         c = get(head, i);
 
         if (c != NULL && c == client) {
             db->numClients--;
             removeAt(&head, i);
-            free(client->name);
+
+           /* free(client->name);
             free(client->surname);
             free(client->adress);
             free(client->email);
             free(client->job);
             free(client->borrowed);
-            free(client->dates);
+            free(client->dates);*/
+
             free(client);
         }
     }
@@ -160,7 +162,7 @@ void updateXmlDB(DBClients *db) {
     for (int i = 0; i < db->numClients; i++) {
         current = get(db->clients, i);
 
-        fprintf(file, "    <client id = '%d'>\n"
+        fprintf(file, "    <client id = '%d' penalties = '%d'>\n"
                       "        <name>%s</name>\n"
                       "        <surname>%s</surname>\n"
                       "        <adress>%s</adress>\n"
@@ -171,11 +173,11 @@ void updateXmlDB(DBClients *db) {
                       "            <emprunt date = '%d/%d/%d'>%s</emprunt>\n"
                       "            <emprunt date = '%d/%d/%d'>%s</emprunt>\n"
                       "        </emprunts>\n"
-                      "    </client>\n", i, current->name, current->surname, current->adress, current->email,
-                current->job, current->dates[0]->day, current->dates[0]->month, current->dates[0]->year,
-                current->borrowed[0], current->dates[1]->day, current->dates[1]->month, current->dates[1]->year,
-                current->borrowed[1],current->dates[2]->day, current->dates[2]->month, current->dates[2]->year,
-                current->borrowed[2]);
+                      "    </client>\n", i, current->penalties, current->name, current->surname, current->adress,
+                      current->email,current->job, current->dates[0]->day, current->dates[0]->month,
+                      current->dates[0]->year,current->borrowed[0], current->dates[1]->day, current->dates[1]->month,
+                      current->dates[1]->year,current->borrowed[1],current->dates[2]->day, current->dates[2]->month,
+                      current->dates[2]->year,current->borrowed[2]);
     }
 
     fprintf(file, "</clients>");
@@ -193,6 +195,7 @@ void *getClients(DBClients *db) {
     char **borrowed;
     char *br;
     char *attribute;
+    char *penalties;
     Date **dates;
     int i = 0;
 
@@ -203,6 +206,7 @@ void *getClients(DBClients *db) {
     for (currentChild = xmlFirstElementChild(root); currentChild != NULL;
         currentChild = xmlNextElementSibling(currentChild)) {
 
+        penalties = (char*) xmlGetProp(currentChild, "penalties");
         client = (Client*) malloc(sizeof(Client));
         borrowed  = (char**) malloc(3 * sizeof(char*));
         dates = (Date**) malloc(3 * sizeof(Date*));
@@ -269,6 +273,7 @@ void *getClients(DBClients *db) {
 
                 client->borrowed = borrowed;
                 client->dates = dates;
+                client->penalties = atoi(penalties);
             }
         }
 
@@ -307,9 +312,9 @@ void showClients(DBClients *db) {
         c = current->value;
 
         printf("\n%s %s, domicilié à %s, contact:  %s, travail : %s "
-               "{%s, %s, %s} emprunte %d livres",
-                   c->name, c->surname, c->adress, c->email, c->job,
-                   c->borrowed[0], c->borrowed[1], c->borrowed[2], c->numBooks);
+               " emprunte %d livres "
+               "\n Possède %d pénalités",
+                   c->name, c->surname, c->adress, c->email, c->job, c->numBooks, c->penalties);
         showDate(c->dates);
     }
 }
@@ -379,4 +384,16 @@ void updateCode(DBBooks *db, DBClients *dbc, Book *book) {
     book->code = sval;
 }
 
+void updateLogs(Client *client, DBBooks *db) {
+    Book *b;
 
+    if (client->numBooks == 0) return;
+
+    for (int i = 0; i < 3; i++) {
+
+        if(strcmp(client->borrowed[i], "AUCUNLI") != 0) {
+            b = byCode(db, client->borrowed[i]);
+            give(client, b);
+        }
+    }
+}
