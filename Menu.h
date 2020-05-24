@@ -13,13 +13,17 @@
 #include "DBClients.h"
 #include "LinkedList.h"
 
+#define RED "\033[1;31m"
+#define GREEN "\033[1;32m"
+#define WHITE "\033[0m"
+
 void welcome(DBClients *dbc, DBBooks *dbb);
 
 void borrowMenu(DBClients *db, DBBooks *dbb);
 
 void clientMenu(DBClients *db, DBBooks *dbb);
 
-void removeClientMenu(DBClients *db);
+void removeClientMenu(DBClients *db, DBBooks *dbb);
 
 void removeBookMenu(DBBooks *db, DBClients *dbc);
 

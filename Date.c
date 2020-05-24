@@ -51,10 +51,7 @@ void showDate(Date **targetDate) {
     }
 }
 
-
-
-
-int compareDate(Date *date2){
+int compareDate(Date *date) {
     int day, month, year;
     time_t now;
     time(&now);
@@ -62,9 +59,9 @@ int compareDate(Date *date2){
     day = local->tm_mday;
     month = local->tm_mon + 1;
     year = local->tm_year + 1900;
-    if(year <date2->year || (year==date2->year && month <date2->month) ||(year ==date2->year && month ==date2->month && day <date2->day))
-    return 1;
+    if(year < date->year || (year==date->year && month <date->month) ||
+        (year ==date->year && month == date->month && day < date->day))
+        return 1;
 
     else return 0;
-
 }
