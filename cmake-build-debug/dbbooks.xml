@@ -39,14 +39,14 @@
         <author>Carlos Dengler</author>
         <code>FAN-002</code>
         <number>10</number>
-        <disp>10</disp>
+        <disp>11</disp>
    </book>
     <book id = '6'>
         <title>La maître du haut chateau</title>
         <author>Abendsen</author>
         <code>FAN-003</code>
         <number>9</number>
-        <disp>8</disp>
+        <disp>10</disp>
    </book>
     <book id = '7'>
         <title>Le meurtre de Saint Peters</title>

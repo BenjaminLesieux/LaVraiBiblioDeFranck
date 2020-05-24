@@ -40,7 +40,6 @@ Book *byCode(DBBooks *db, char* code) {
         b = current->value;
 
         if(strcmp(b->code, code) == 0) {
-            printf("\n Found %s", b->title);
             return b;
         }
     }
