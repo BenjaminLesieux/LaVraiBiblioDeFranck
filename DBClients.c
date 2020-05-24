@@ -128,7 +128,6 @@ void give(Client *client, Book *book) {
 
     for (int i = 0; i < 3; i++) {
         if (strcmp(client->borrowed[i], book->code) == 0) {
-            printf("\nOK");
 
             if (i < 2) {
                 client->borrowed[i] = client->borrowed[i+1];

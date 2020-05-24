@@ -91,6 +91,7 @@ void removeAt(Node **head, int index) {
     else if (index == 0) {
         *head = current->next;
         free(current);
+        return;
     }
 
     else {
@@ -152,21 +153,25 @@ void *get(Node *head, int index) {
     int i = 0;
     Node *node = head;
 
+    printf("\n%d", index);
+
     if (index == 0) {
         return head->value;
     }
 
-    while (node != NULL && i < (index)) {
-        node = node->next;
-        i++;
-    }
+    else {
+        while (node != NULL && i < (index)) {
+            node = node->next;
+            i++;
+        }
 
-    if (node == NULL) {
-        printf("\nErreur de récupération de noeud");
-        return NULL;
-    }
+        if (node == NULL) {
+            printf("\nErreur de récupération de noeud");
+            return NULL;
+        }
 
-    return node->value;
+        return node->value;
+    }
 }
 
 Node *getNodeAt(Node *head, int index) {

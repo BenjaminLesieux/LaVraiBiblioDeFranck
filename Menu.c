@@ -154,7 +154,7 @@ void removeClientMenu(DBClients *db, DBBooks *dbb) {
         valid = scanf("%d", &choice);
         getchar();
 
-        if (valid == 1 && choice >= 0 && choice < db->numClients) {
+        if (valid == 1 && choice > 0 && choice < db->numClients) {
             c = get(db->clients, choice);
             updateLogs(c, dbb);
             removeClient(db, c);
@@ -300,20 +300,21 @@ void removeBookMenu(DBBooks *db, DBClients *dbc) {
 
             do {
 
-
                 printf("\n Combien d'exemplaires (parmi %d) de %s souhaitez vous supprimer ? : ",
                         toDelete->disp, toDelete->title);
                 valid = scanf("%d", &value);
             } while (valid == 0 || value  < 0 || value > toDelete->disp);
 
-            removeBook(db, toDelete, value);
+            if (choice == 1 && value == toDelete->num && value > 0)
+                removeBook(db, toDelete, value-1);
+            else
+                removeBook(db, toDelete, value);
 
             Book *bk;
 
             for (Node *b = db->books; b != NULL; b = b->next) {
 
                 bk = b->value;
-
                 updateCode(db, dbc, bk);
             }
         }
