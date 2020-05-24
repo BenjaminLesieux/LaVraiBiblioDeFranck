@@ -187,7 +187,7 @@ void borrowMenu(DBClients *db, DBBooks *dbb) {
         valid = scanf("%d", &choice);
         getchar();
 
-        if (valid == 1 && choice > 0 && choice < db->numClients) {
+        if (valid == 1 && choice >= 0 && choice < db->numClients) {
 
             int sub_choice;
             int sub_valid;
@@ -205,7 +205,7 @@ void borrowMenu(DBClients *db, DBBooks *dbb) {
                 sub_valid = scanf("%d", &sub_choice);
                 getchar();
 
-                if (sub_valid == 1 && sub_choice > 0 && sub_choice < dbb->numBooks) {
+                if (sub_valid == 1 && sub_choice >= 0 && sub_choice < dbb->numBooks) {
                     c = get(db->clients, choice);
                     b = get(dbb->books, sub_choice);
 

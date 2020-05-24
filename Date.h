@@ -6,6 +6,7 @@
 #define LABIBLIODEFRANCK_DATE_H
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 typedef struct {
 
