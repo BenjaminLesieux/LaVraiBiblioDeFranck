@@ -253,7 +253,6 @@ void *getClients(DBClients *db) {
                     br = (char*) xmlNodeGetContent(book);
                     attribute = (char*) xmlGetProp(book, "date");
 
-
                     if (strcmp((char*)book->name, "emprunt") == 0) {
                         if (i < 3) {
                             borrowed[i] = br;
