@@ -31,13 +31,6 @@ int main() {
 
     // il peut y avoir moins coûteux en énergie
 
-
-    /** Code projet */
-
-
-
-    /** Fin code projet */
-
     updateXmlDB(db); // UPDATE CLIENTS
     updateXmlDBBooks(dbBooks); // UPDATE BOOKS
 
