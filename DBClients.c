@@ -200,7 +200,6 @@ void *getClients(DBClients *db) {
 
     int childs = (int) xmlChildElementCount(root);
 
-    printf("\n%d childs", childs);
 
     for (currentChild = xmlFirstElementChild(root); currentChild != NULL;
         currentChild = xmlNextElementSibling(currentChild)) {
@@ -223,27 +222,27 @@ void *getClients(DBClients *db) {
             }
 
             if (strcmp((char*)content->name, "name") == 0) {
-                printf("\n Found a name");
+
                 client->name = val;
             }
 
             else if (strcmp((char*)content->name, "surname") == 0) {
-                printf("\n Found a surname");
+
                 client->surname = val;
             }
 
             else if (strcmp((char*)content->name, "adress") == 0) {
-                printf("\n Found an adress");
+
                 client->adress = val;
             }
 
             else if (strcmp((char*)content->name, "email") == 0) {
-                printf("\n Found a email");
+
                 client->email = val;
             }
 
             else if (strcmp((char*)content->name, "job") == 0) {
-                printf("\n Found a job");
+
                 client->job = val;
             }
 
@@ -254,7 +253,6 @@ void *getClients(DBClients *db) {
                     br = (char*) xmlNodeGetContent(book);
                     attribute = (char*) xmlGetProp(book, "date");
 
-                    printf("\n%s", br);
 
                     if (strcmp((char*)book->name, "emprunt") == 0) {
                         if (i < 3) {

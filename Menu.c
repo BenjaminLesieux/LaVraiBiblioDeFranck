@@ -385,6 +385,7 @@ void searchMenu(DBBooks *db) {
     } while (onMenu == 1 || valid == 0 || choice < 1 || choice > 3);
 }
 
+
 void giveMenu(DBClients *dbc, DBBooks *dbb) {
     int onMenu = 1;
     int valid = 0;

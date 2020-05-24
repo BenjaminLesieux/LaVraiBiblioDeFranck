@@ -176,7 +176,6 @@ void *getBooks(DBBooks *db) {
 
     int childs = xmlChildElementCount(root);
 
-    printf("\n%d childs", childs);
 
     for (currentChild = xmlFirstElementChild(root); currentChild != NULL;
          currentChild = xmlNextElementSibling(currentChild)) {
@@ -190,27 +189,26 @@ void *getBooks(DBBooks *db) {
             val = (char*) xmlNodeGetContent(content);
 
             if (strcmp((char*)content->name, "title") == 0) {
-                printf("\n Found a title");
                 book->title = val;
             }
 
             else if (strcmp((char*)content->name, "author") == 0) {
-                printf("\n Found a author");
+
                 book->author = val;
             }
 
             else if (strcmp((char*)content->name, "code") == 0) {
-                printf("\n Found a code");
+
                 book->code = val;
             }
 
             else if (strcmp((char*)content->name, "number") == 0) {
-                printf("\n Found a number");
+
                 book->num = atoi(val);
             }
 
             else if (strcmp((char*)content->name, "disp") == 0) {
-                printf("\n Found a disp");
+
                 book->disp = atoi(val);
             }
 
