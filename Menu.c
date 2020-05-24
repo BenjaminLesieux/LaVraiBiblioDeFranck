@@ -154,7 +154,7 @@ void removeClientMenu(DBClients *db, DBBooks *dbb) {
         valid = scanf("%d", &choice);
         getchar();
 
-        if (valid == 1 && choice > 0 && choice < db->numClients) {
+        if (valid == 1 && choice >= 0 && choice < db->numClients) {
             c = get(db->clients, choice);
             updateLogs(c, dbb);
             removeClient(db, c);
@@ -331,7 +331,7 @@ void searchMenu(DBBooks *db) {
     int choice;
     int subValid;
     int subChoice;
-    char *search = (char*) malloc(100 * sizeof(char));
+    char search[100];
 
     do {
         printf("\n --------------- Recherche  -----------------"
@@ -359,10 +359,10 @@ void searchMenu(DBBooks *db) {
                         getchar();
                     } while (subValid == 0 || subChoice < 0 || subChoice > 4);
 
-                    if (subChoice == 1) search = "ROM";
-                    else if (subChoice == 2) search = "POL";
-                    else if (subChoice == 3) search = "THR";
-                    else if (subChoice == 4) search = "FAN";
+                    if (subChoice == 1) strcpy(search, "ROM");
+                    else if (subChoice == 2) strcpy(search, "POL");
+                    else if (subChoice == 3) strcpy(search, "THR");
+                    else if (subChoice == 4) strcpy(search, "FAN");
 
                     searchBook(db, 1, search);
 
@@ -382,8 +382,6 @@ void searchMenu(DBBooks *db) {
         }
 
     } while (onMenu == 1 || valid == 0 || choice < 1 || choice > 3);
-
-    free(search);
 }
 
 void giveMenu(DBClients *dbc, DBBooks *dbb) {

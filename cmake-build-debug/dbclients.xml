@@ -1,29 +1,17 @@
 <clients>
     <client id = '0' penalties = '0'>
-        <name>Armand </name>
-        <surname>Vérité</surname>
-        <adress>Ozark</adress>
-        <email>jedislavérité@gmail.com</email>
-        <job>vérité</job>
-        <emprunts>
-            <emprunt date = '24/5/2020'>THR-000</emprunt>
-            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
-            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
-        </emprunts>
-    </client>
-    <client id = '1' penalties = '0'>
         <name>Benjamin</name>
         <surname>Lezieux</surname>
         <adress>La Chapelle en Serval</adress>
         <email>ben.lesieux@gmail.com</email>
         <job>Codeur</job>
         <emprunts>
-            <emprunt date = '12/8/2020'>FAN-003</emprunt>
+            <emprunt date = '12/8/2020'>FAN-002</emprunt>
             <emprunt date = '12/8/2020'>FAN-003</emprunt>
             <emprunt date = '0/0/0'>AUCUNLI</emprunt>
         </emprunts>
     </client>
-    <client id = '2' penalties = '0'>
+    <client id = '1' penalties = '0'>
         <name>Diego</name>
         <surname>Sanglier</surname>
         <adress>La forêt </adress>
@@ -35,19 +23,7 @@
             <emprunt date = '0/0/0'>AUCUNLI</emprunt>
         </emprunts>
     </client>
-    <client id = '3' penalties = '0'>
-        <name>Henry</name>
-        <surname>Dupontoi</surname>
-        <adress>Paris</adress>
-        <email>hrydptoi@gmail.com</email>
-        <job>Riche</job>
-        <emprunts>
-            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
-            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
-            <emprunt date = '0/0/0'>AUCUNLI</emprunt>
-        </emprunts>
-    </client>
-    <client id = '4' penalties = '0'>
+    <client id = '2' penalties = '0'>
         <name>Quentin</name>
         <surname>Vincent</surname>
         <adress>Paris</adress>
@@ -59,7 +35,7 @@
             <emprunt date = '0/0/0'>AUCUNLI</emprunt>
         </emprunts>
     </client>
-    <client id = '5' penalties = '0'>
+    <client id = '3' penalties = '0'>
         <name>Régis</name>
         <surname>Lesieux</surname>
         <adress>La Chapelle en Serval</adress>
@@ -71,7 +47,7 @@
             <emprunt date = '0/0/0'>AUCUNLI</emprunt>
         </emprunts>
     </client>
-    <client id = '6' penalties = '0'>
+    <client id = '4' penalties = '0'>
         <name>Saez</name>
         <surname>LeChanteur</surname>
         <adress>Paris</adress>
@@ -83,7 +59,7 @@
             <emprunt date = '0/0/0'>AUCUNLI</emprunt>
         </emprunts>
     </client>
-    <client id = '7' penalties = '1'>
+    <client id = '5' penalties = '1'>
         <name>Thomas</name>
         <surname>Dutronc</surname>
         <adress>Paris</adress>

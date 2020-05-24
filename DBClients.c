@@ -90,7 +90,7 @@ void removeClient(DBClients *db, Client *client) {
 
         if (c != NULL && c == client) {
             db->numClients--;
-            removeAt(&head, i);
+            removeAt(&db->clients, i);
 
            /* free(client->name);
             free(client->surname);

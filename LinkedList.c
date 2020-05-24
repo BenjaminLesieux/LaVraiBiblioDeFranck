@@ -89,9 +89,8 @@ void removeAt(Node **head, int index) {
     }
 
     else if (index == 0) {
-        current = (*head)->next;
-        free(head);
-        *head = current;
+        *head = current->next;
+        free(current);
     }
 
     else {
@@ -152,6 +151,10 @@ Node *getFrom(Node *head, void *value) {
 void *get(Node *head, int index) {
     int i = 0;
     Node *node = head;
+
+    if (index == 0) {
+        return head->value;
+    }
 
     while (node != NULL && i < (index)) {
         node = node->next;
